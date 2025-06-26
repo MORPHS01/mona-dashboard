@@ -1,22 +1,53 @@
 @import "tailwindcss";
+/* @import "/app/fonts/ClashGrotesk_Complete/ClashGrotesk_Complete/Fonts/WEB/css/clash-grotesk.css"; */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f7f8;
+  --foreground: #131503;
+  --gray-100: #c6c7c3;
+  --gray-200: #9a9a93;
+  --gray-300: #6a6c60;
+  --monaOrange: #fe7048;
+  --softOrange: #fff1ed;
+  --monaGreen: #8fdc97;
+  --deepGreen: #0f973d;
+  --softGreen: #e7f5ec;
+  --monaYellow: #ad7311;
+  --softYellow: #fef6e8;
+  --monaRed: #de102a;
+  --softRed: #fce7ea;
+  --deepBrown: #fce7ea;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --gray-100: red;
   }
+} */
+
+@theme inline {
+  /* fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-clashGrotesk: var(--font-clashGrotesk);
+  --font-generalSans: var(--font-generalSans);
+
+  /* colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-monaOrange: var(--monaOrange);
+  --color-softOrange: var(--softOrange);
+  --color-monaGreen: var(--monaGreen);
+  --color-deepGreen: var(--deepGreen);
+  --color-softGreen: var(--softGreen);
+  --color-monaYellow: var(--monaYellow);
+  --color-softYellow: var(--softYellow);
+  --color-deepBrown: var(--deepBrown);
 }
 
 body {
