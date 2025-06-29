@@ -9,7 +9,7 @@ export default function MoreActions() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <main className="bg-white p-[24px] rounded-lg flex flex-col">
+    <main className="bg-white p-[24px] max-[40rem]:p-[18px] rounded-lg flex flex-col">
       <p className="font-clashGrotesk font-semibold text-lg max-sm:text-base mb-[24px]">
         More Actions
       </p>

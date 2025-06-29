@@ -41,7 +41,7 @@ export default function Button(props: ButtonProps) {
     <button
       {...rest}
       className={twMerge(
-        "rounded-sm cursor-pointer transition-all duration-300 ease-in-out px-[16px] py-[12px] text-sm font-medium font-generalSans",
+        "rounded-sm cursor-pointer transition-all duration-300 ease-in-out px-[16px] py-[12px] max-[40rem]:px-[12px] max-[40rem]:p-[8px] text-sm font-medium font-generalSans",
         variant === "fill"
           ? "hover:brightness-85"
           : "bg-transparent hover:bg-[#00000008]",

@@ -67,7 +67,7 @@ export default function Transactions() {
 
   return (
     <main className="w-full max-w-[2000px]">
-      <section className="bg-white px-[24px] py-[16px] rounded-lg flex justify-between items-center mb-[24px]">
+      <section className="bg-white px-[24px] max-[40rem]:px-[18px] py-[16px] max-[40rem]:py-[12px] rounded-lg flex justify-between items-center mb-[24px]">
         <p
           className="font-clashGrotesk font-semibold text-base max-sm:text-sm cursor-pointer hover:text-monaOrange transition"
           onClick={() => {
@@ -90,9 +90,9 @@ export default function Transactions() {
       {Object.entries(selectedFilters).filter(
         ([, value]) => value && value !== "all"
       ).length > 0 && (
-        <section className="flex justify-between items-center gap-[4px] mb-[24px]">
-          <aside className="flex items-center gap-[4px]">
-            <p className="font-generalSans font-medium text-sm">
+        <section className="flex justify-between flex-wrap items-center gap-[4px] mb-[24px]">
+          <aside className="flex items-center flex-wrap gap-[4px]">
+            <p className="font-generalSans font-medium text-sm whitespace-nowrap">
               Filtered by :
             </p>
             <article className="flex gap-2 flex-wrap">
@@ -126,16 +126,16 @@ export default function Transactions() {
               });
               setSelectedFilters(resetFilters);
             }}
-            className="text-[#D85F3D] font-semibold text-xs hover:brightness-120 cursor-pointer"
+            className="text-[#D85F3D] font-semibold text-xs hover:brightness-120 cursor-pointer whitespace-nowrap"
           >
             Reset all
           </p>
         </section>
       )}
 
-      <section className="bg-white p-[24px] rounded-lg overflow-auto">
+      <section className="bg-white p-[24px] max-[40rem]:p-[15px] rounded-lg overflow-auto">
         <aside className="flex justify-between items-center max-lg:flex-wrap max-lg:gap-[10px] max-md:flex-col mb-[24px]">
-          <div className="bg-background w-[33%] min-w-[340px] max-md:w-full relative group">
+          <div className="bg-background w-[33%] min-w-[340px] max-[40rem]:min-w-[250px] max-md:w-full relative group">
             <Icon
               name="search"
               className="absolute left-[16px] top-1/2 -translate-y-1/2 stroke-[#C6C7C3] group-focus-within:stroke-[#000000]"
@@ -174,7 +174,7 @@ export default function Transactions() {
                   {transactionsHeader.map((header, i) => (
                     <th
                       key={i}
-                      className="p-[16px] text-left text-foreground font-medium font-generalSans text-sm whitespace-nowrap"
+                      className="p-[16px] max-[40rem]:p-[10px] text-left text-foreground font-medium font-generalSans text-sm whitespace-nowrap"
                     >
                       {header}
                     </th>
@@ -187,13 +187,13 @@ export default function Transactions() {
                     key={i}
                     className="border-t border-divider hover:bg-background/80 whitespace-nowrap text-gray-300 text-sm font-normal font-generalSans"
                   >
-                    <td className="p-[16px] text-foreground">
+                    <td className="p-[16px] max-[40rem]:p-[12px] text-foreground">
                       {transaction.transactionId}
                     </td>
-                    <td className="p-[16px]">
+                    <td className="p-[16px] max-[40rem]:p-[10px]">
                       <div className="flex items-center gap-[8px]">
                         {transaction.payer === "Jerry Wilson" ? (
-                          <div className="relative w-[32px] h-[32px]">
+                          <div className="relative w-[32px] h-[32px] max-[40rem]:w-[24px] max-[40rem]:h-[24px]">
                             <Image
                               src="/images/user-image.jpg"
                               alt="user-image-with-mona-emblem"
@@ -210,15 +210,17 @@ export default function Transactions() {
                             />
                           </div>
                         ) : (
-                          <div className="w-[32px] h-[32px] bg-monaGreen text-white flex justify-center items-center rounded-full">
+                          <div className="w-[32px] h-[32px] max-[40rem]:w-[24px] max-[40rem]:h-[24px] bg-monaGreen text-white flex justify-center items-center rounded-full">
                             IN
                           </div>
                         )}
                         <p>{transaction.payer}</p>
                       </div>
                     </td>
-                    <td className="p-[16px]">{transaction.amount}</td>
-                    <td className="p-[16px]">
+                    <td className="p-[16px] max-[40rem]:p-[10px]">
+                      {transaction.amount}
+                    </td>
+                    <td className="p-[16px] max-[40rem]:p-[10px]">
                       <div className="flex gap-[8px] items-center">
                         <span
                           className={`p-[6px] rounded-lg text-[10px] leading-[16px] font-medium ${
@@ -234,12 +236,12 @@ export default function Transactions() {
                         {transaction.retry && <RetryBlock />}
                       </div>
                     </td>
-                    <td className="p-[16px]">
+                    <td className="p-[16px] max-[40rem]:p-[10px]">
                       <div className="p-[8px] rounded-md text-[10px] leading-[16px] font-medium border border-divider text-center max-w-fit">
                         {transaction.method}
                       </div>
                     </td>
-                    <td className="p-[16px]">
+                    <td className="p-[16px] max-[40rem]:p-[10px]">
                       <Link
                         href={{
                           pathname: `/transactions/${
@@ -274,14 +276,16 @@ export default function Transactions() {
                         </div>
                       </Link>
                     </td>
-                    <td className="p-[16px]">{transaction.date}</td>
+                    <td className="p-[16px] max-[40rem]:p-[10px]">
+                      {transaction.date}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           ) : (
             <section className="h-[450px] w-full flex justify-center items-center">
-              <article className="text-center flex flex-col w-[264px] items-center gap-[16px]">
+              <article className="text-center flex flex-col w-[264px] items-center gap-[16px] max-[40rem]:p-[10px]">
                 <Image
                   src="/svgs/empty-states.svg"
                   alt="empty-state"
@@ -310,7 +314,7 @@ export default function Transactions() {
 
         {/* Pagination controls */}
         {paginatedTransactions.length > 0 && (
-          <aside className="flex max-lg:flex-wrap max-md:flex-col gap-2 mt-[12px] p-[16px] justify-between items-center text-gray-300 text-sm font-normal font-generalSans">
+          <aside className="flex max-lg:flex-wrap max-md:flex-col gap-2 mt-[12px] p-[16px] max-[40rem]:p-[10px] justify-between items-center text-gray-300 text-sm font-normal font-generalSans">
             <span>
               Page {currentPage} of {totalPages}
             </span>
@@ -399,8 +403,12 @@ export default function Transactions() {
               <p>items per page</p>
               <input
                 type="number"
+                min={1}
                 value={itemsPerPage}
-                onChange={(e) => setItemsPerPage(Number(e.target.value))}
+                onChange={(e) => {
+                  const value = Math.max(1, Number(e.target.value));
+                  setItemsPerPage(value);
+                }}
                 className="bg-background p-[10px] rounded-md w-[50px] text-foreground"
               />
             </div>

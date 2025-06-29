@@ -50,16 +50,18 @@ export default function FilterModal() {
           />
         </article>
 
-        <article className="flex flex-col justify-between">
-          {filters.map((filter, i) => (
-            <FilterBlock
-              key={i}
-              header={filter.header}
-              filterList={filter.filterList}
-              value={selectedFilters[filter.header]}
-              onChange={(value) => handleFilterChange(filter.header, value)}
-            />
-          ))}
+        <article className="flex flex-col justify-between mb-[20px] h-[80vh]">
+          <aside>
+            {filters.map((filter, i) => (
+              <FilterBlock
+                key={i}
+                header={filter.header}
+                filterList={filter.filterList}
+                value={selectedFilters[filter.header]}
+                onChange={(value) => handleFilterChange(filter.header, value)}
+              />
+            ))}
+          </aside>
           <aside className="flex gap-[10px]">
             <Button
               variant="outline"

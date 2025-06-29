@@ -10,7 +10,7 @@ export default function Sidebar() {
 
   return (
     <main
-      className="max-md:hidden sticky top-[1px] bg-white transition-all duration-700 ease-in-out flex flex-col justify-between"
+      className="max-md:hidden sticky top-[1px] h-[100vh] bg-white transition-all duration-700 ease-in-out flex flex-col justify-between"
       style={{
         width: sideOpen ? "20%" : "90px",
         minWidth: sideOpen ? "280px" : "90px",

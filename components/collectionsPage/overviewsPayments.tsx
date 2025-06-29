@@ -9,7 +9,7 @@ import { useStateContext } from "@/contexts/ContextProvider";
 
 export function Overviews() {
   return (
-    <main className="bg-white p-[24px] rounded-lg flex flex-col mb-[24px]">
+    <main className="bg-white p-[24px] max-[40rem]:p-[18px] rounded-lg flex flex-col mb-[24px]">
       <section className="flex justify-between items-center mb-[16px]">
         <p className="font-clashGrotesk font-semibold text-lg max-sm:text-base">
           Overview
@@ -29,7 +29,9 @@ export function Overviews() {
           <p className="uppercase text-gray-300 text-[10px] font-medium">
             Completed Payments
           </p>
-          <p className="mb-[8px] font-clashGrotesk font-bold text-xl">8</p>
+          <p className="mb-[8px] max-sm:mb-[4px] font-clashGrotesk font-bold text-xl">
+            8
+          </p>
           <p className="text-gray-300 font-semibold text-[10px]">
             successful out of 12
           </p>
@@ -40,7 +42,9 @@ export function Overviews() {
           <p className="uppercase text-gray-300 text-[10px] font-medium">
             Total Collected
           </p>
-          <p className="mb-[8px] font-clashGrotesk font-bold text-xl">₦6,000</p>
+          <p className="mb-[8px] max-sm:mb-[4px] font-clashGrotesk font-bold text-xl">
+            ₦6,000
+          </p>
           <p className="text-gray-300 font-semibold text-[10px]">
             last payment - 06 Aug 2025
           </p>
@@ -51,7 +55,7 @@ export function Overviews() {
           <p className="uppercase text-gray-300 text-[10px] font-medium">
             Estimated future payment
           </p>
-          <p className="mb-[8px] font-clashGrotesk font-bold text-xl">
+          <p className="mb-[8px] max-sm:mb-[4px] font-clashGrotesk font-bold text-xl">
             ₦14,000
           </p>
           <p className="text-gray-300 font-semibold text-[10px]">
@@ -86,12 +90,12 @@ export function Payments({ payer }: { payer: string }) {
     currentPage * itemsPerPage
   );
   return (
-    <main className="bg-white p-[24px] rounded-lg w-full max-w-[1000px]">
+    <main className="bg-white p-[24px] max-[40rem]:p-[18px] rounded-lg w-full max-w-[1000px]">
       <aside className="flex justify-between items-center max-xl:flex-wrap max-lg:gap-[10px] max-md:flex-col max-md:items-start mb-[24px]">
         <p className="font-clashGrotesk font-semibold text-lg max-sm:text-base">
           Payments
         </p>
-        <div className="flex items-center gap-[8px] max-md:w-full">
+        <div className="flex items-center max-sm:flex-col gap-[8px] max-md:w-full max-sm:items-start">
           <div className="bg-background w-[33%] min-w-[250px] max-md:w-full relative group">
             <Icon
               name="search"
@@ -111,7 +115,7 @@ export function Payments({ payer }: { payer: string }) {
             border="#090901"
             text="#090901"
             onClick={() => setFilterMenuOpen(true)}
-            className="flex items-center gap-[10px] max-md:flex-1 max-md:justify-center"
+            className="flex items-center gap-[10px] max-md:flex-1 max-md:justify-center max-sm:justify-start"
           >
             <Icon name="filter" />
             Filter
@@ -331,8 +335,12 @@ export function Payments({ payer }: { payer: string }) {
             <p>items per page</p>
             <input
               type="number"
+              min={1}
               value={itemsPerPage}
-              onChange={(e) => setItemsPerPage(Number(e.target.value))}
+              onChange={(e) => {
+                const value = Math.max(1, Number(e.target.value));
+                setItemsPerPage(value);
+              }}
               className="bg-background p-[10px] rounded-md w-[50px] text-foreground"
             />
           </div>

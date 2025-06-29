@@ -1,11 +1,20 @@
 "use client";
+import Loading from "@/components/loading";
 import { useStateContext } from "@/contexts/ContextProvider";
 import Icon from "@/public/svgs/dynamicSvgs";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default function Checkout() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <CheckoutPage />
+    </Suspense>
+  );
+}
+
+function CheckoutPage() {
   const searchParams = useSearchParams();
   const payer = searchParams.get("payer");
   const status = searchParams.get("status");
@@ -18,7 +27,7 @@ export default function Checkout() {
 
   return (
     <main>
-      <section className="bg-white px-[24px] py-[16px] rounded-lg flex flex-col mb-[24px]">
+      <section className="bg-white px-[24px] max-[40rem]:px-[18px] py-[16px] max-[40rem]:py-[12px] rounded-lg flex flex-col mb-[24px]">
         <div
           onClick={() => router.back()}
           className="flex items-center gap-[2px] text-gray-300 font-medium font-generalSans text-[10px] hover:brightness-110 cursor-pointer transition"
@@ -42,7 +51,7 @@ export default function Checkout() {
 
       <section className="flex items-start gap-[24px] max-lg:gap-[18px] max-lg:flex-wrap max-md:flex-col">
         <article className="flex-311/548 max-md:w-full">
-          <div className="bg-white p-[24px] rounded-lg flex flex-col mb-[24px]">
+          <div className="bg-white p-[24px] max-[40rem]:p-[18px] rounded-lg flex flex-col mb-[24px]">
             <aside className="bg-background rounded-lg py-[12px] w-full flex flex-col gap-[4px] items-center">
               <p className="text-xs font-generalSans font-normal">Amount</p>
               <p className="font-bold font-clashGrotesk text-3xl max-md:text-lg">
@@ -154,7 +163,7 @@ export default function Checkout() {
         </article>
 
         <article className="flex-225/548 max-md:w-full">
-          <div className="bg-white p-[24px] rounded-lg flex flex-col mb-[24px]">
+          <div className="bg-white p-[24px] max-[40rem]:p-[18px] rounded-lg flex flex-col mb-[24px]">
             <p className="font-clashGrotesk font-semibold text-lg max-sm:text-base mb-[24px]">
               Timeline
             </p>
