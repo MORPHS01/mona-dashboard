@@ -32,7 +32,7 @@ export function SideBarMenuLayout({
             key={i}
             href={item.link}
             className={`${
-              pathname === item.link ? "bg-background" : "bg-white"
+              pathname.startsWith(item.link) ? "bg-background" : "bg-white"
             } ${
               sideOpen ? "justify-between" : "justify-start pl-[25px]"
             } flex justify-between items-center px-[12px] py-[16px] rounded-lg hover:bg-background transition-all duration-200 ease-in-out`}
@@ -40,11 +40,13 @@ export function SideBarMenuLayout({
             <div className="flex gap-[7px] items-center">
               <Icon
                 name={item.icon}
-                color={pathname === item.link ? "#fe7048" : "#9a9a93"}
+                color={pathname.startsWith(item.link) ? "#fe7048" : "#9a9a93"}
               />
               <p
                 className={`${
-                  pathname === item.link ? "text-foreground" : "text-gray-200"
+                  pathname.startsWith(item.link)
+                    ? "text-foreground"
+                    : "text-gray-200"
                 } ${
                   sideOpen
                     ? "opacity-100 translate-x-0"
@@ -60,7 +62,11 @@ export function SideBarMenuLayout({
                   sideOpen
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-10 w-0 pointer-events-none"
-                } overflow-hidden whitespace-nowrap transition-all duration-900 bg-divider rounded-lg px-[4px] py-[2px] text-gray-100 font-medium font-generalSans text-xs`}
+                } overflow-hidden whitespace-nowrap transition-all duration-900 rounded-lg px-[4px] py-[2px] font-medium font-generalSans text-xs ${
+                  pathname.startsWith("/setup-guide")
+                    ? "bg-softOrange text-monaOrange"
+                    : "bg-divider text-gray-100"
+                }`}
               >
                 30% Done
               </div>
@@ -95,7 +101,7 @@ export function SideBarMenuLayoutMobile({
             href={item.link}
             onClick={() => window.innerWidth < 768 && setSideOpenMobile(false)}
             className={`${
-              pathname === item.link ? "bg-background" : "bg-white"
+              pathname.startsWith(item.link) ? "bg-background" : "bg-white"
             } ${
               sideOpenMobile ? "justify-between" : "justify-start pl-[25px]"
             } flex justify-between items-center px-[10px] py-[12px] rounded-lg hover:bg-background transition-all duration-200 ease-in-out`}
@@ -103,11 +109,13 @@ export function SideBarMenuLayoutMobile({
             <div className="flex gap-[7px] items-center">
               <Icon
                 name={item.icon}
-                color={pathname === item.link ? "#fe7048" : "#9a9a93"}
+                color={pathname.startsWith(item.link) ? "#fe7048" : "#9a9a93"}
               />
               <p
                 className={`${
-                  pathname === item.link ? "text-foreground" : "text-gray-200"
+                  pathname.startsWith(item.link)
+                    ? "text-foreground"
+                    : "text-gray-200"
                 } ${
                   sideOpenMobile
                     ? "opacity-100 translate-x-0"
@@ -123,7 +131,11 @@ export function SideBarMenuLayoutMobile({
                   sideOpenMobile
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-10 w-0 pointer-events-none"
-                } overflow-hidden whitespace-nowrap transition-all duration-900 bg-divider rounded-lg px-[4px] py-[2px] text-gray-100 font-medium font-generalSans text-xs`}
+                } overflow-hidden whitespace-nowrap transition-all duration-900 rounded-lg px-[4px] py-[2px] font-medium font-generalSans text-xs ${
+                  pathname.startsWith("/setup-guide")
+                    ? "bg-softOrange text-monaOrange"
+                    : "bg-divider text-gray-100"
+                }`}
               >
                 30% Done
               </div>

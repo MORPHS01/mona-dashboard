@@ -370,17 +370,17 @@ export const icons = {
       />
     </svg>
   ),
-  download: () => (
+  download: (color: string) => (
     <svg
       width="20"
       height="20"
       viewBox="0 0 20 20"
       fill="none"
+      stroke={color}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M5 17.5H15M10 2.5V14.1667M10 14.1667L14.1667 10M10 14.1667L5.83333 10"
-        stroke="white"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -462,19 +462,12 @@ export const icons = {
     >
       <path
         d="M6.75 5.25L10.5 1.5"
-        stroke="#6A6C60"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M8 1.5H10.5V4"
-        stroke="#6A6C60"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M8 1.5H10.5V4" strokeLinecap="round" strokeLinejoin="round" />
       <path
         d="M10.5 7V9.5C10.5 10.0523 10.0523 10.5 9.5 10.5H6H2.5C1.94771 10.5 1.5 10.0523 1.5 9.5V2.5C1.5 1.94771 1.94771 1.5 2.5 1.5H5"
-        stroke="#6A6C60"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -534,26 +527,258 @@ export const icons = {
       />
     </svg>
   ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
-  // example: () => (
-  // ),
+  close: (color: string) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  smallLeftArrow: () => (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.75 3.5L5.25 7L8.75 10.5"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  check: () => (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.5 7.25C2.5 7.25 3.25 7.25 4.25 9C4.25 9 7.02941 4.41667 9.5 3.5"
+        stroke="#0F973D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  warning: (color: string) => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke={color}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10 7.5V11.6667"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.99986 17.8417H4.94986C2.0582 17.8417 0.849863 15.775 2.24986 13.25L4.84986 8.56665L7.29986 4.16665C8.7832 1.49165 11.2165 1.49165 12.6999 4.16665L15.1499 8.57498L17.7499 13.2583C19.1499 15.7833 17.9332 17.85 15.0499 17.85H9.99986V17.8417Z"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.99561 14.1667H10.0031"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  calendar: () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.6665 1.33333V3.33333"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M2.3335 6.06H13.6668"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14 5.66666V11.3333C14 13.3333 13 14.6667 10.6667 14.6667H5.33333C3 14.6667 2 13.3333 2 11.3333V5.66666C2 3.66666 3 2.33333 5.33333 2.33333H10.6667C13 2.33333 14 3.66666 14 5.66666Z"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.463 9.13334H10.469"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.463 11.1333H10.469"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.99715 9.13334H8.00314"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.99715 11.1333H8.00314"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.52938 9.13334H5.53537"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.52938 11.1333H5.53537"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  bank: () => (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1.75009 11.0833H12.2501M7.00009 7V11.0833M10.5001 7V11.0833M3.50009 7V11.0833M7.26096 1.88043L12.0109 4.25542C12.5065 4.50318 12.3301 5.25 11.7761 5.25H2.22403C1.67004 5.25 1.49373 4.50318 1.98924 4.25542L6.73923 1.88043C6.90343 1.79832 7.09675 1.79832 7.26096 1.88043Z"
+        stroke="#C6C7C3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  orangeCopy: () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.66637 6.40002V4.53349C5.66637 3.78675 5.66637 3.4131 5.8117 3.12789C5.93952 2.877 6.14335 2.67318 6.39424 2.54535C6.67944 2.40002 7.0531 2.40002 7.79984 2.40002H11.5332C12.2799 2.40002 12.6531 2.40002 12.9383 2.54535C13.1892 2.67318 13.3934 2.877 13.5212 3.12789C13.6665 3.4131 13.6665 3.78647 13.6665 4.53321V8.26656C13.6665 9.01329 13.6665 9.38669 13.5212 9.67189C13.3934 9.92276 13.189 10.127 12.9381 10.2548C12.6532 10.4 12.2804 10.4 11.5351 10.4H9.66637M5.66637 6.40002H3.79984C3.0531 6.40002 2.67945 6.40002 2.39424 6.54535C2.14335 6.67318 1.93953 6.877 1.8117 7.12789C1.66637 7.41309 1.66637 7.78676 1.66637 8.53349V12.2668C1.66637 13.0136 1.66637 13.3868 1.8117 13.672C1.93953 13.9228 2.14335 14.127 2.39424 14.2548C2.67917 14.4 3.05236 14.4 3.79764 14.4H7.53544C8.2807 14.4 8.65337 14.4 8.9383 14.2548C9.18917 14.127 9.39337 13.9226 9.52117 13.6718C9.66637 13.3868 9.66637 13.014 9.66637 12.2688V10.4M5.66637 6.40002H7.53317C8.2799 6.40002 8.6531 6.40002 8.9383 6.54535C9.18917 6.67318 9.39337 6.877 9.52117 7.12789C9.66637 7.41282 9.66637 7.78602 9.66637 8.53129V10.4"
+        stroke="#FE7048"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  bigCheck: () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.3335 9.66663C3.3335 9.66663 4.3335 9.66663 5.66683 12C5.66683 12 9.37271 5.88885 12.6668 4.66663"
+        stroke="#0F973D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  retrySuccess: (color: string) => (
+    <svg
+      width="16"
+      height="17"
+      viewBox="0 0 16 17"
+      fill="none"
+      stroke={color}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.07355 3.88664C6.65355 3.71331 7.29355 3.59998 8.00021 3.59998C11.1935 3.59998 13.7802 6.18664 13.7802 9.37998C13.7802 12.5733 11.1935 15.16 8.00021 15.16C4.80688 15.16 2.22021 12.5733 2.22021 9.37998C2.22021 8.19331 2.58021 7.08664 3.19355 6.16664"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.24658 4.04671L7.17325 1.83337"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.24658 4.04663L7.49325 5.68663"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  smallClose: () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.6667 10.6666L8.00004 7.99992M8.00004 7.99992L5.33337 5.33325M8.00004 7.99992L10.6667 5.33325M8.00004 7.99992L5.33337 10.6666"
+        stroke="#6A6C60"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
   // example: () => (
   // ),
   // example: (color:string) => (

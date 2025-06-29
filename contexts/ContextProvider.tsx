@@ -3,7 +3,6 @@ import {
   createContext,
   useContext,
   useState,
-  useEffect,
   ReactNode,
   Dispatch,
   SetStateAction,
@@ -16,6 +15,10 @@ type StateContextProps = {
   setSideOpenMobile: Dispatch<SetStateAction<boolean>>;
   filterMenuOpen: boolean;
   setFilterMenuOpen: Dispatch<SetStateAction<boolean>>;
+  selectedFilters: { [header: string]: string };
+  setSelectedFilters: React.Dispatch<
+    React.SetStateAction<{ [header: string]: string }>
+  >;
 };
 
 const defaultState = {
@@ -33,35 +36,12 @@ interface ContextProviderProps {
 export const ContextProvider: React.FC<ContextProviderProps> = ({
   children,
 }) => {
-  const [sideOpen, setSideOpen] = useState(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("sideOpen");
-      if (stored !== null) return stored === "true";
-      return true;
-    }
-    return true;
-  });
-
-  const [sideOpenMobile, setSideOpenMobile] = useState(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("sideOpenMobile");
-      if (stored !== null) return stored === "true";
-      return false;
-    }
-    return false;
-  });
-
+  const [sideOpen, setSideOpen] = useState(true);
+  const [sideOpenMobile, setSideOpenMobile] = useState(false);
   const [filterMenuOpen, setFilterMenuOpen] = useState(false);
-
-  // Persist sideOpen
-  useEffect(() => {
-    localStorage.setItem("sideOpen", String(sideOpen));
-  }, [sideOpen]);
-
-  // Persist sideOpenMobile
-  useEffect(() => {
-    localStorage.setItem("sideOpenMobile", String(sideOpenMobile));
-  }, [sideOpenMobile]);
+  const [selectedFilters, setSelectedFilters] = useState<{
+    [header: string]: string;
+  }>({});
 
   return (
     <StateContext.Provider
@@ -72,6 +52,8 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({
         setSideOpenMobile,
         filterMenuOpen,
         setFilterMenuOpen,
+        selectedFilters,
+        setSelectedFilters,
       }}
     >
       {children}

@@ -1,6 +1,7 @@
 "use client";
 import Icon from "@/public/svgs/dynamicSvgs";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function RetryBlock() {
   const [loading, setLoading] = useState(false);
@@ -9,6 +10,7 @@ export default function RetryBlock() {
     e.stopPropagation();
     e.preventDefault();
     setLoading(true);
+    toast("Retry Sent Awaiting Confirmation.");
     setTimeout(() => setLoading(false), 3000);
   }
   return (
@@ -34,7 +36,7 @@ export default function RetryBlock() {
       ) : (
         <span
           onClick={setIsLoading}
-          className="flex gap-[2px] items-center group"
+          className="flex gap-[2px] items-center group cursor-pointer"
         >
           <Icon
             name="retry"

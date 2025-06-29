@@ -1,4 +1,4 @@
-export const transactionsHeader = [
+export const transactionsHeader: string[] = [
   "Transaction ID",
   "Payer",
   "Amount",
@@ -8,7 +8,18 @@ export const transactionsHeader = [
   "Date",
 ];
 
-export const transactions = [
+type TransactionsType = {
+  transactionId: string;
+  payer: string;
+  amount: string;
+  status: string;
+  method: string;
+  source: string;
+  date: string;
+  retry?: boolean;
+};
+
+export const transactions: TransactionsType[] = [
   {
     transactionId: "MNA -TRC-422871",
     payer: "Jerry Wilson",
@@ -143,7 +154,7 @@ export const transactions = [
     amount: "₦5,000",
     status: "Successful",
     method: "Bank Transfer",
-    source: "CHECKOUT",
+    source: "COLLECTIONS",
     date: "05/05/25, 11:36am",
   },
   {
