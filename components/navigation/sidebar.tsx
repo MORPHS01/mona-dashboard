@@ -2,11 +2,12 @@
 import Icon from "@/public/svgs/dynamicSvgs";
 import Image from "next/image";
 import { activity, mainMenu, profile } from "@/data/sidebarData";
-import { SideBarMenuLayout } from "./sidebarmenulayout";
+import { Menu, SideBarMenuLayout } from "./sidebarmenulayout";
 import { useStateContext } from "@/contexts/ContextProvider";
 
 export default function Sidebar() {
-  const { sideOpen, setSideOpen } = useStateContext();
+  const { sideOpen, setSideOpen, sideOpenMobile, setSideOpenMobile } =
+    useStateContext();
 
   return (
     <main
@@ -18,6 +19,59 @@ export default function Sidebar() {
       }}
     >
       <main>
+        <section
+          className={`w-full flex items-center mb-[10px] ${
+            sideOpen ? "justify-between" : "justify-start"
+          }`}
+        >
+          <aside
+            className={`flex  justify-center items-center transition-all duration-300 ease-in-out ${
+              sideOpen ? "gap-[12px]" : "gap-0 ps-3.5"
+            }`}
+          >
+            {sideOpen ? (
+              <Image
+                src="/svgs/mona-emblem.svg"
+                alt="mona-logo"
+                height={35}
+                width={35}
+                className="w-[35px] rounded-full border border-black/30 hover:brightness-70 transition cursor-pointer"
+              />
+            ) : (
+              <div
+                onClick={() => {
+                  if (window.innerWidth > 768) {
+                    setSideOpen(!sideOpen);
+                  } else {
+                    setSideOpenMobile(!sideOpenMobile);
+                  }
+                }}
+              >
+                <Menu />
+              </div>
+            )}
+          </aside>
+          <div
+            className={`overflow-hidden whitespace-nowrap transition-all duration-900 ease-in-out ${
+              sideOpen
+                ? "opacity-100 translate-x-0 px-[7px] py-[10px]"
+                : "opacity-0 -translate-x-10 w-0 pointer-events-none"
+            }`}
+          >
+            <Icon
+              name="close"
+              onClick={() => {
+                if (window.innerWidth > 768) {
+                  setSideOpen(!sideOpen);
+                } else {
+                  setSideOpenMobile(!sideOpenMobile);
+                }
+              }}
+              className="cursor-pointer hover:bg-black/10 transition rounded-full"
+            />
+          </div>
+        </section>
+
         <section
           className={`bg-background rounded-lg w-full flex items-center mb-[24px] ${
             sideOpen ? "justify-between" : "justify-start"

@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import RetryBlock from "@/components/retryBlock";
 import Link from "next/link";
+import { Menu } from "@/components/navigation/sidebarmenulayout";
 
 export default function Transactions() {
   const {
@@ -68,18 +69,23 @@ export default function Transactions() {
   return (
     <main className="w-full max-w-[2000px]">
       <section className="bg-white px-[24px] max-[40rem]:px-[18px] py-[16px] max-[40rem]:py-[12px] rounded-lg flex justify-between items-center mb-[24px]">
-        <p
-          className="font-clashGrotesk font-semibold text-base max-sm:text-sm cursor-pointer hover:text-monaOrange transition"
-          onClick={() => {
-            if (window.innerWidth > 768) {
-              setSideOpen(!sideOpen);
-            } else {
-              setSideOpenMobile(!sideOpenMobile);
-            }
-          }}
-        >
-          Transactions
-        </p>
+        <aside className="flex items-center gap-[15px]">
+          <div
+            className="hidden max-md:block"
+            onClick={() => {
+              if (window.innerWidth > 768) {
+                setSideOpen(!sideOpen);
+              } else {
+                setSideOpenMobile(!sideOpenMobile);
+              }
+            }}
+          >
+            <Menu />
+          </div>
+          <p className="font-clashGrotesk font-semibold text-base max-sm:text-sm">
+            Transactions
+          </p>
+        </aside>
 
         <Icon
           name="bell"

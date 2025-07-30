@@ -14,6 +14,39 @@ export default function MobileSidebar() {
         sideOpenMobile ? "translate-x-0" : "-translate-x-full"
       }`}
     >
+      <section
+        className={`w-full flex items-center mb-[10px] ${
+          sideOpenMobile ? "justify-between" : "justify-start"
+        }`}
+      >
+        <aside
+          className={`flex  justify-center items-center ${
+            sideOpenMobile ? "gap-[12px]" : "gap-0 ps-3.5"
+          }`}
+        >
+          <Image
+            src="/svgs/mona-emblem.svg"
+            alt="mona-logo"
+            height={35}
+            width={35}
+            onClick={() => setSideOpenMobile(!sideOpenMobile)}
+            className="w-[35px] rounded-full border border-black/30 hover:brightness-70 transition cursor-pointer"
+          />
+        </aside>
+        <div
+          className={`overflow-hidden whitespace-nowrap transition-all duration-900 ease-in-out ${
+            sideOpenMobile
+              ? "opacity-100 translate-x-0 px-[7px] py-[10px]"
+              : "opacity-0 -translate-x-10 w-0 pointer-events-none"
+          }`}
+        >
+          <Icon
+            name="close"
+            onClick={() => setSideOpenMobile(!sideOpenMobile)}
+            className="cursor-pointer hover:bg-black/10 transition rounded-full"
+          />
+        </div>
+      </section>
       <section className="flex flex-col justify-between">
         <main>
           <section

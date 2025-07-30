@@ -11,6 +11,7 @@ import {
 } from "@/components/collectionsPage/overviewsPayments";
 import Loading from "@/components/loading";
 import React, { Suspense } from "react";
+import { Menu } from "@/components/navigation/sidebarmenulayout";
 
 export default function Collections() {
   return (
@@ -33,26 +34,33 @@ function CollectionsPage() {
   return (
     <Suspense fallback={<Loading />}>
       <main>
-        <section className="bg-white px-[24px] max-[40rem]:px-[18px] py-[16px] max-[40rem]:py-[12px] rounded-lg flex flex-col mb-[24px]">
-          <Link
-            href="/transactions"
-            className="flex items-center gap-[2px] text-gray-300 font-medium font-generalSans text-[10px] hover:brightness-110 cursor-pointer transition"
-          >
-            <Icon name="smallLeftArrow" />
-            {transactionId}
-          </Link>
-          <p
-            className="font-clashGrotesk font-semibold text-base max-sm:text-sm cursor-pointer hover:text-monaOrange transition"
-            onClick={() => {
-              if (window.innerWidth > 768) {
-                setSideOpen(!sideOpen);
-              } else {
-                setSideOpenMobile(!sideOpenMobile);
-              }
-            }}
-          >
-            {collectionId}
-          </p>
+        <section className="bg-white px-[24px] max-[40rem]:px-[18px] py-[16px] max-[40rem]:py-[12px] rounded-lg flex gap-[20px] mb-[24px]">
+          <aside className="flex items-center gap-[15px]">
+            <div
+              className="hidden max-md:block"
+              onClick={() => {
+                if (window.innerWidth > 768) {
+                  setSideOpen(!sideOpen);
+                } else {
+                  setSideOpenMobile(!sideOpenMobile);
+                }
+              }}
+            >
+              <Menu />
+            </div>
+          </aside>
+          <aside className="flex flex-col">
+            <Link
+              href="/transactions"
+              className="flex items-center gap-[2px] text-gray-300 font-medium font-generalSans text-[10px] hover:brightness-110 cursor-pointer transition"
+            >
+              <Icon name="smallLeftArrow" />
+              {transactionId}
+            </Link>
+            <p className="font-clashGrotesk font-semibold text-base max-sm:text-sm">
+              {collectionId}
+            </p>
+          </aside>
         </section>
 
         <section className="flex items-start gap-[24px] max-lg:gap-[18px] max-lg:flex-wrap max-md:flex-col">

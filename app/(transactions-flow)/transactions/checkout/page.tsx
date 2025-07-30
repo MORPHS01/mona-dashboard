@@ -1,10 +1,11 @@
 "use client";
 import Loading from "@/components/loading";
-import { useStateContext } from "@/contexts/ContextProvider";
 import Icon from "@/public/svgs/dynamicSvgs";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { Suspense } from "react";
+import { useStateContext } from "@/contexts/ContextProvider";
+import { Menu } from "@/components/navigation/sidebarmenulayout";
 
 export default function Checkout() {
   return (
@@ -22,31 +23,38 @@ function CheckoutPage() {
 
   const router = useRouter();
 
-  const { setSideOpen, setSideOpenMobile, sideOpen, sideOpenMobile } =
+  const { sideOpen, setSideOpen, setSideOpenMobile, sideOpenMobile } =
     useStateContext();
 
   return (
     <main>
-      <section className="bg-white px-[24px] max-[40rem]:px-[18px] py-[16px] max-[40rem]:py-[12px] rounded-lg flex flex-col mb-[24px]">
-        <div
-          onClick={() => router.back()}
-          className="flex items-center gap-[2px] text-gray-300 font-medium font-generalSans text-[10px] hover:brightness-110 cursor-pointer transition"
-        >
-          <Icon name="smallLeftArrow" />
-          Transactions
-        </div>
-        <p
-          className="font-clashGrotesk font-semibold text-base max-sm:text-sm cursor-pointer hover:text-monaOrange transition"
-          onClick={() => {
-            if (window.innerWidth > 768) {
-              setSideOpen(!sideOpen);
-            } else {
-              setSideOpenMobile(!sideOpenMobile);
-            }
-          }}
-        >
-          {transactionId}
-        </p>
+      <section className="bg-white px-[24px] max-[40rem]:px-[18px] py-[16px] max-[40rem]:py-[12px] flex gap-[20px] rounded-lg mb-[24px]">
+        <aside className="flex items-center gap-[15px]">
+          <div
+            className="hidden max-md:block"
+            onClick={() => {
+              if (window.innerWidth > 768) {
+                setSideOpen(!sideOpen);
+              } else {
+                setSideOpenMobile(!sideOpenMobile);
+              }
+            }}
+          >
+            <Menu />
+          </div>
+        </aside>
+        <aside className="flex flex-col">
+          <div
+            onClick={() => router.back()}
+            className="flex items-center gap-[2px] text-gray-300 font-medium font-generalSans text-[10px] hover:brightness-110 cursor-pointer transition"
+          >
+            <Icon name="smallLeftArrow" />
+            Transactions
+          </div>
+          <p className="font-clashGrotesk font-semibold text-base max-sm:text-sm">
+            {transactionId}
+          </p>
+        </aside>
       </section>
 
       <section className="flex items-start gap-[24px] max-lg:gap-[18px] max-lg:flex-wrap max-md:flex-col">

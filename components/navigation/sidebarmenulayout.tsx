@@ -146,3 +146,17 @@ export function SideBarMenuLayoutMobile({
     </main>
   );
 }
+
+export function Menu() {
+  return (
+    <svg
+      width="23px"
+      height="23px"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      className="fill-black hover:fill-monaOrange cursor-pointer transition w-[35px] max-md:w-[20px]"
+    >
+      <path d="M2 3h12v1.5H2zm0 4.25h12V8.75H2zm0 4.25h12v1.5H2z" />
+    </svg>
+  );
+}
